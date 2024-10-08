@@ -1,0 +1,18 @@
+#containerTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+}
+
+#titlePage{
+    font-weight: bold;
+    font-size: 48px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#imagemLogo{
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+}
