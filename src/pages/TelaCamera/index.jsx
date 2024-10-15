@@ -25,10 +25,12 @@ function TelaCamera() {
                 )}
             </div>
 
-            <label htmlFor="botaoCamera" className="photo-button">Tirar Foto</label>
-            <input id="botaoCamera" type="file" accept="image/*" class="botaoCamera" onChange={handleFileChange}/>
+            <div id="botoes">
+                <label htmlFor="botaoCamera" className="photo-button">Tirar Foto</label>
+                <input id="botaoCamera" type="file" accept="image/*" class="botaoCamera" onChange={handleFileChange}/>
 
-            <button className="botaoVoltar" onClick={() => navigate("/")}>VOLTAR</button>
+                <button className="botaoVoltar" onClick={() => navigate("/")}>VOLTAR</button>
+            </div>
         </div>
     );
 }
