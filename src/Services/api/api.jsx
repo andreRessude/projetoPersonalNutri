@@ -1,7 +1,7 @@
 export async function buscarPratos() {
     
     try {
-        const response = await fetch('http://192.168.15.8:3000/pratos/'); //COLOCAR SEU ENDERECO IP E RODAR A API NA PORTA 3000
+        const response = await fetch('http://192.168.74.87:3000/pratos/'); //COLOCAR SEU ENDERECO IP E RODAR A API NA PORTA 3000
         const text = await response.text(); // Obter resposta como texto
         if (!response.ok) {
         throw new Error(`Erro ao buscar pratos: ${response.status} ${response.statusText}`);

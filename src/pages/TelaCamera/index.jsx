@@ -9,25 +9,35 @@ function TelaCamera() {
     // Função para lidar com a seleção do arquivo
     const handleFileChange = (event) => {
         const file = event.target.files[0]; // Obtém o primeiro arquivo selecionado
-        if (file) {
+        if (file && file.type.startsWith('image/')) { // Verifica se é uma imagem
             const imageUrl = URL.createObjectURL(file); // Cria um URL para o arquivo
             setImage(imageUrl); // Atualiza o estado com o URL da imagem
+        } else {
+            alert("Por favor, selecione um arquivo de imagem válido."); // Alerta se não for imagem
         }
+    };
+
+    const clearImage = () => {
+        setImage(null); // Limpa a imagem
     };
     
     return (
         <div className="containerCamera">
             <div id="telaCamera">
                 {image ? (
-                    <img src={image} alt="foto tirada" className="image-preview__img"/>
+                    <img src={image} alt="foto tirada" className="image-preview__img" style={{ maxWidth: '100%', maxHeight: '400px' }}/>
                 ) : (
-                    <p>Tire uma foto</p>
+                    <p>Selecione uma imagem do seu dispositivo</p>
                 )}
             </div>
 
             <div id="botoes">
-                <label htmlFor="botaoCamera" className="photo-button">Tirar Foto</label>
-                <input id="botaoCamera" type="file" accept="image/*" class="botaoCamera" onChange={handleFileChange}/>
+                <label htmlFor="botaoCamera" className="photo-button">Selecionar Imagem</label>
+                <input id="botaoCamera" type="file" accept="image/*" className="botaoCamera" onChange={handleFileChange}/>
+
+                {image && (
+                    <button className="botaoLimpar" onClick={clearImage}>Limpar Imagem</button>
+                )}
 
                 <button className="botaoVoltar" onClick={() => navigate("/")}>VOLTAR</button>
             </div>
