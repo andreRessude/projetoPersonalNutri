@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./telaPrato.module.css";
+import Layout from "../../Components/Layout/Layout";
 
 function TelaPrato(props) {
     const location = useLocation(); // define o props como 'prato'
@@ -11,7 +12,7 @@ function TelaPrato(props) {
     };
 
     return (
-        <>
+        <Layout>
             <div className={styles.telaAlimentoSelecionado}>
                 <img className={styles.imagemPrato} src={prato.imagem} alt="imagem prato" />
                 
@@ -146,7 +147,7 @@ function TelaPrato(props) {
 
                 <button className={styles.botaoVoltar} onClick={() => changePage("/")}>Voltar</button>
             </div>
-        </>
+        </Layout>
     );
 }
 
