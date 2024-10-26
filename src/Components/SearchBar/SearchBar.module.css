@@ -1,0 +1,32 @@
+.searchBar {
+    width: 100%;
+    max-width: 850px; /* Limita o tamanho máximo da barra */
+    height: 50px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Garante que padding não afete o tamanho */
+}
+
+.searchBar:focus {
+    box-shadow: 0 0 5px rgba(255, 87, 51, 0.2); /* Efeito de foco */
+}
+
+@media (max-width: 768px) {
+    .searchBar {
+        width: 90%;
+        font-size: 0.9rem;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .searchBar {
+        width: 100%;
+        font-size: 0.85rem;
+        height: 35px;
+    }
+}

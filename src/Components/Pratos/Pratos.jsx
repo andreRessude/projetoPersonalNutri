@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"; 
 import { useNavigate } from "react-router-dom";
 import { buscarPratos } from "../../Services/api/api";
-import "./Pratos.css"
+import styles from "./Pratos.module.css"
 
 function Pratos({ searchQuery }) {  //recebe parametro searchQuery
     const [listaPratos, setlistaPratos] = useState([]);     //lista completa de pratos
@@ -46,20 +46,20 @@ function Pratos({ searchQuery }) {  //recebe parametro searchQuery
 
     return (
         <>
-            <div class="lista-cards">
+            <div className={styles.listaCards}>
                 {/* Verifique se a lista de pratos filtrados está vazia */}
                 {pratosFiltrados.length === 0 ? (
                     // Se estiver vazia e houver um termo de pesquisa, mostre a mensagem
                     searchQuery && (
-                        <p id="textoPratoNaoEncontrado">Prato não Encontrado!</p>
+                        <p className={styles.textoPratoNaoEncontrado}>Prato não Encontrado!</p>
                     )
                 ) : (
                     // Se não estiver vazia, mostre a lista de pratos filtrados
                     pratosFiltrados.map((prato) => (
-                        <div key={prato.id} className="card-container" onClick={() => changePage("/telaprato", prato)}>
-                            <img src={prato.imagem} alt={prato.nome} className="card-image"/>
-                            <div className="card-content">
-                                <h3 className="card-title">{prato.nome}</h3>
+                        <div key={prato.id} className={styles.cardContainer} onClick={() => changePage("/telaprato", prato)}>
+                            <img src={prato.imagem} alt={prato.nome} className={styles.cardImage}/>
+                            <div className={styles.cardContent}>
+                                <h3 className={styles.cardTitle}>{prato.nome}</h3>
                             </div>
                         </div>
                     ))

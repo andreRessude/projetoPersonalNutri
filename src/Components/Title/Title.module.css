@@ -1,0 +1,49 @@
+.titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.appTitle {
+    font-size: 2rem;
+    color: #002855;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    
+    .logo {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .appTitle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .titleContainer {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .appTitle {
+        font-size: 1.2rem;
+    }
+}

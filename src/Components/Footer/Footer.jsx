@@ -1,9 +1,9 @@
-import "./Footer.css"
+import styles from "./Footer.module.css"
 
 function Footer(){
     return(
-        <div id="container">
-            <p id="text">Desenvolvido por: Equipe Personal Nutri</p>
+        <div className={styles.container}>
+            <p className={styles.text}>Desenvolvido por: Equipe Personal Nutri</p>
         </div>
     )
 };

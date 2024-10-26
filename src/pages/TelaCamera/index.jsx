@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "./telaCamera.css";
+import styles from "./telaCamera.module.css";
 
 function TelaCamera() {
     const navigate = useNavigate();
@@ -22,24 +22,30 @@ function TelaCamera() {
     };
     
     return (
-        <div className="containerCamera">
-            <div id="telaCamera">
+        <div className={styles.containerCamera}>
+            <div className={styles.telaCamera}>
                 {image ? (
-                    <img src={image} alt="foto tirada" className="image-preview__img" style={{ maxWidth: '100%', maxHeight: '400px' }}/>
+                    <img src={image} alt="foto tirada" className={styles.imagePreviewImg} style={{ maxWidth: '100%', maxHeight: '400px' }}/>
                 ) : (
-                    <p>Selecione uma imagem do seu dispositivo</p>
+                    <p className={styles.textPlaceholder}>Selecione uma imagem do seu dispositivo</p>
                 )}
             </div>
 
-            <div id="botoes">
-                <label htmlFor="botaoCamera" className="photo-button">Selecionar Imagem</label>
-                <input id="botaoCamera" type="file" accept="image/*" className="botaoCamera" onChange={handleFileChange}/>
+            <div className={styles.buttonsContainer}>
+                <label htmlFor="fileInput" className={styles.photoButton}>Selecionar Imagem</label>
+                <input 
+                    id="fileInput" 
+                    type="file" 
+                    accept="image/*" 
+                    className={styles.fileInput} 
+                    onChange={handleFileChange} 
+                />
 
                 {image && (
-                    <button className="botaoLimpar" onClick={clearImage}>Limpar Imagem</button>
+                    <button className={styles.clearButton} onClick={clearImage}>Limpar Imagem</button>
                 )}
 
-                <button className="botaoVoltar" onClick={() => navigate("/")}>VOLTAR</button>
+                <button className={styles.clearButton} onClick={() => navigate("/")}>VOLTAR</button>
             </div>
         </div>
     );

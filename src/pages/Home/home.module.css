@@ -1,0 +1,92 @@
+.componentes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* Ajustes no estilo da barra de pesquisa */
+.searchInput {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #FF5733;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+    border-color: #FF5733;
+    box-shadow: 0 0 8px rgba(255, 87, 51, 0.2);
+}
+
+/* Ajustes no estilo do botão da câmera */
+.cameraButton {
+    background-color: #002855;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cameraButton:hover {
+    transform: scale(1.05);
+}
+
+.cameraIcon {
+    width: 70%;
+}
+
+/* Ajustes para tablet */
+@media (max-width: 768px) {
+    .row {
+        width: 90%;
+    }
+
+    .searchInput {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .cameraButton {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/*  Ajuste para celulares*/
+@media (max-width: 480px) {
+    .row {
+        width: 100%;
+        /* flex-direction: column; */
+        gap: 12px;
+    }
+    
+    .searchInput {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .cameraButton {
+        width: 40px;
+        height: 40px;
+    }
+}
