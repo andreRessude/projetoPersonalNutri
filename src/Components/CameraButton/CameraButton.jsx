@@ -1,19 +1,19 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import "./cameraButton.css"
+import { useNavigate } from "react-router-dom";
+import styles from "./CameraButton.module.css";
 
-function CameraButton(){
+function CameraButton() {
     const navigate = useNavigate();
     
     const changePage = (path) => {
-        console.log("TO AQUI"+path)
-        navigate(path); //navega para a tela que o 'path' define
-    }
+        console.log("MUDANDO PARA TelaCamera" + path);
+        navigate(path);
+    };
 
-    return(
-        <div class="containerBotaoCamera">
-            <img class="iconeCamera" src="src/assets/camera.png" alt="ícone câmera" onClick={()=>{changePage("/telacamera")}}/>
+    return (
+        <div className={styles.cameraButton} onClick={() => changePage("/telacamera")}>
+            <img className={styles.cameraIcon} src="src/assets/camera.png" alt="ícone câmera" />
         </div>
     );
-};
+}
 
 export default CameraButton;

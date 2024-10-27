@@ -1,0 +1,235 @@
+.telaAlimentoSelecionado {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 700px;
+}
+
+/*imagem do prato*/
+.imagemPrato {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+/* container com informações do prato*/
+.containerTelaPrato {
+    width: 100%;
+    text-align: center;
+    /* margin-bottom: 16px; */
+}
+
+.titulo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.textoPorcao {
+    font-size: 16px;
+    color: #666;
+    font-style: italic;
+}
+
+.tituloTabela {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 20px 0 10px;
+    border-bottom: 2px solid #d32f2f; 
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.tabela {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.linhaTabela {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #f3f3f3;
+}
+
+.textoTabela {
+    font-size: 18px;
+    color: #444;
+}
+
+/* botão recomendacao saudavel */
+.botaoRecomendacao {
+    background-color: #4CAF50; 
+    color: #fff;
+    margin: 12px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.botaoRecomendacao:hover {
+    background-color: #45a049; 
+    transform: scale(1.05);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modalContent {
+    background-color: #fff; 
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent p {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.modalVoltar {
+    color: #fff;
+    background-color: #e74c3c; 
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modalVoltar:hover {
+    background-color: #c0392b; /* Vermelho mais escuro ao passar o mouse */
+    transform: scale(1.05);
+}
+
+.botaoVoltar {
+    margin: 12px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #d32f2f;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.botaoVoltar:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/*tablets   */
+@media (max-width: 768px) {
+
+    .telaAlimentoSelecionado {
+        padding: 15px;
+        max-width: 400px;
+    }
+
+    .imagemPrato {
+        max-height: 250px;
+    }
+
+    .titulo {
+        font-size: 20px;
+    }
+
+    .tituloTabela {
+        font-size: 16px;
+        margin: 15px 0 8px;
+    }
+    
+    .linhaTabela {
+        height: 24px;
+    }
+
+    .textoTabela {
+        font-size: 12px;
+    }
+    
+    .botaoVoltar {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+/* celular*/
+@media (max-width: 480px) {
+    
+    .telaAlimentoSelecionado {
+        padding: 10px;
+        max-width: 300px;
+    }
+    
+    .imagemPrato {
+        max-height: 200px;
+    }
+    
+    .titulo {
+        font-size: 18px;
+    }
+    
+    .tituloTabela {
+        font-size: 14px;
+        margin: 10px 0 6px;
+    }
+    
+    .tabela {
+        gap: 8px;
+    }
+    
+    .linhaTabela {
+        height: 12px;
+    }
+    
+    .botaoVoltar {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}

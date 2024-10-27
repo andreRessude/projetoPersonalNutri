@@ -1,4 +1,4 @@
-import "./SearchBar.css"
+import styles from "./SearchBar.module.css"
 
 export default function SearchBar({ onSearch }) {
     const handleChange = (event) => {   //funcao chamada qunado o valor do input muda
@@ -6,9 +6,11 @@ export default function SearchBar({ onSearch }) {
     };
 
     return (
-        <>
-            {/* barra de pesquisa */}
-            <input type='search' id='searchbar' placeholder=' Digite o nome de um prato...' onChange={handleChange}/>
-        </>
+        <input 
+            type='search' 
+            className={styles.searchBar} 
+            placeholder=' Digite o nome de um prato...' 
+            onChange={handleChange} 
+        />
     );
 }

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "./telaCamera.css";
+import styles from "./telaCamera.module.css";
+import Layout from "../../Components/Layout/Layout";
 
 function TelaCamera() {
     const navigate = useNavigate();
@@ -9,27 +10,47 @@ function TelaCamera() {
     // Função para lidar com a seleção do arquivo
     const handleFileChange = (event) => {
         const file = event.target.files[0]; // Obtém o primeiro arquivo selecionado
-        if (file) {
+        if (file && file.type.startsWith('image/')) { // Verifica se é uma imagem
             const imageUrl = URL.createObjectURL(file); // Cria um URL para o arquivo
             setImage(imageUrl); // Atualiza o estado com o URL da imagem
+        } else {
+            alert("Por favor, selecione um arquivo de imagem válido."); // Alerta se não for imagem
         }
+    };
+
+    const clearImage = () => {
+        setImage(null); // Limpa a imagem
     };
     
     return (
-        <div className="containerCamera">
-            <div id="telaCamera">
-                {image ? (
-                    <img src={image} alt="foto tirada" className="image-preview__img"/>
-                ) : (
-                    <p>Tire uma foto</p>
-                )}
+        <Layout>
+            <div className={styles.containerCamera}>
+                <div className={styles.telaCamera}>
+                    {image ? (
+                        <img src={image} alt="foto tirada" className={styles.imagePreviewImg} style={{ maxWidth: '100%', maxHeight: '400px' }}/>
+                    ) : (
+                        <p className={styles.textPlaceholder}>Selecione uma imagem do seu dispositivo</p>
+                    )}
+                </div>
+
+                <div className={styles.buttonsContainer}>
+                    <label htmlFor="fileInput" className={styles.photoButton}>Selecionar Imagem</label>
+                    <input 
+                        id="fileInput" 
+                        type="file" 
+                        accept="image/*" 
+                        className={styles.fileInput} 
+                        onChange={handleFileChange} 
+                        />
+
+                    {image && (
+                        <button className={styles.clearButton} onClick={clearImage}>Limpar Imagem</button>
+                    )}
+
+                    <button className={styles.clearButton} onClick={() => navigate("/")}>VOLTAR</button>
+                </div>
             </div>
-
-            <label htmlFor="botaoCamera" className="photo-button">Tirar Foto</label>
-            <input id="botaoCamera" type="file" accept="image/*" class="botaoCamera" onChange={handleFileChange}/>
-
-            <button className="botaoVoltar" onClick={() => navigate("/")}>VOLTAR</button>
-        </div>
+        </Layout>
     );
 }
 

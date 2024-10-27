@@ -1,0 +1,26 @@
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #d32f2f;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.textoHeader{
+    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+}
+
+.mainContent {
+    flex: 1;
+}
