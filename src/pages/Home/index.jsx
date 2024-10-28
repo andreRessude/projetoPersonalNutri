@@ -1,24 +1,24 @@
-import Title from '../../Components/Title/Title'; // Título
-import SearchBar from '../../Components/SearchBar/SearchBar'; // Barra de pesquisa
+import Title from '../../Components/Title/Title'; 
+import SearchBar from '../../Components/SearchBar/SearchBar'; 
 import CameraButton from '../../Components/CameraButton/CameraButton';
-import Pratos from '../../Components/Pratos/Pratos'; // Lista de pratos na API
-import Footer from '../../Components/Footer/Footer'; // Rodapé
+import Pratos from '../../Components/Pratos/Pratos'; // lista de pratos da api
+import Footer from '../../Components/Footer/Footer'; 
 import { useState } from 'react';
 import styles from "./Home.module.css";
 
 function Home() {
-    const [searchQuery, setSearchQuery] = useState(''); // Estado que armazena o valor da pesquisa
+    const [searchQuery, setSearchQuery] = useState(''); // estado que armazena o valor da pesquisa
 
-    // Função chamada quando a barra de pesquisa envia um novo valor
+    // funcao chamada quando a barra de pesquisa envia um novo valor
     const handleSearch = (query) => {
-        setSearchQuery(query);  // Atualiza o estado com o valor recebido
+        setSearchQuery(query);  // atualiza o estado com o valor recebido
     };
 
     
 
     return (
         <>
-            <div className={styles.componentes}>
+            <div className={styles.components}>
                 <Title/>
                 <div className={styles.row}>
                     <SearchBar onSearch={handleSearch} />

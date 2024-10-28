@@ -5,7 +5,7 @@ function App() {
   
   return(
     <>
-      <RoutesMain/> {/*Componente que possui as rotas/telas do aplicativo*/}
+      <RoutesMain/> {/*componente que possui as rotas/telas do aplicativo*/}
     </>
   )
 }

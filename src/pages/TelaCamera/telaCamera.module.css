@@ -6,12 +6,12 @@
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 800px;
     margin: 20px auto;
     font-family: 'Arial', sans-serif;
 }
 
-/* Simulação de Tela (Computador ou Celular) */
+/* simulacao da tela */
 .telaCamera {
     position: relative;
     display: flex;
@@ -51,14 +51,14 @@
     z-index: 10;
 }
 
-/* Placeholder de Texto */
+/* placeholder */
 .textPlaceholder {
-    font-size: 16px;
+    font-size: 32px;
     color: #888;
     text-align: center;
 }
 
-/* Imagem de Pré-visualização */
+/* image preview */
 .imagePreviewImg {
     max-width: 90%;
     max-height: 90%;
@@ -70,7 +70,7 @@
     transform: scale(1.03);
 }
 
-/* Contêiner de Botões */
+/* container dos botoess */
 .buttonsContainer {
     display: flex;
     flex-direction: column;
@@ -79,7 +79,7 @@
     align-items: center;
 }
 
-/* Botão de Selecionar Imagem */
+/* btn selecionar imagem */
 .photoButton {
     padding: 12px 20px;
     font-size: 16px;
@@ -98,12 +98,11 @@
     background-color: #c0392b;
 }
 
-/* Input de Arquivo Oculto */
 .fileInput {
     display: none;
 }
 
-/* Botões de Limpar e Voltar */
+/* botoes de limpar e voltar */
 .clearButton {
     padding: 10px 20px;
     font-size: 14px;
@@ -123,15 +122,40 @@
     background-color: #c0392b;
 }
 
-.clearButton:last-of-type {
-    background-color: #7f8c8d;
+/* texto do prato ideintificado  */
+.identifiedDish {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
 }
 
-.clearButton:last-of-type:hover {
-    background-color: #5d6d7e;
+/* botao de detalhes */
+.detailsButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #e74c3c;
+    background-color: #f8f9fa;
+    border: 2px solid #e74c3c;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 80%;
+    display: block;
+    margin: 10px auto;
 }
 
-/* Responsividade para Tablets */
+.detailsButton:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+
+
+/* Tablets */
 @media (max-width: 768px) {
     .containerCamera {
         max-width: 350px;
@@ -148,7 +172,7 @@
     }
 }
 
-/* Responsividade para Celulares */
+/* celulares */
 @media (max-width: 480px) {
     .containerCamera {
         max-width: 280px;
