@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useState } from "react"; // Importar useState
+import { useState } from "react"; 
 import styles from "./telaPrato.module.css";
 import Layout from "../../Components/Layout/Layout";
 
@@ -15,7 +15,7 @@ function TelaPrato(props) {
         navigate(path); // navega para a tela que o 'path' define
     };
 
-    // Função para retornar a recomendação saudável com base no nome do prato
+    // funcao para retornar a recomendaçao saudavel com base no nome do prato
     const getRecomendacaoSaudavel = (pratoNome) => {
         switch (pratoNome) {
             case 'Estrogonofe de Frango':
@@ -45,108 +45,108 @@ function TelaPrato(props) {
                 
                 {/*titulo e porção do prato*/}
                 <div className={styles.containerTelaPrato}>
-                    <p className={styles.titulo}>{prato.nome}</p>   
-                    <p className={styles.textoPorcao}>--- porção: 300g ---</p>
+                    <p className={styles.title}>{prato.nome}</p>   
+                    <p className={styles.textPorcao}>--- porção: 300g ---</p>
                 </div>
         
                 {/*ingredientes*/}
                 <div className={styles.containerTelaPrato}>
-                    <h2 className={styles.tituloTabela}>Ingredientes</h2>
+                    <h2 className={styles.titleTabela}>Ingredientes</h2>
                     {prato.nome === 'Estrogonofe de Frango' && (
                         <div className={styles.tabela}>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Peito de Frango</p>
-                                <p className={styles.textoTabela}>160g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Peito de Frango</p>
+                                <p className={styles.textTabela}>160g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Cebola</p>
-                                <p className={styles.textoTabela}>21g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Cebola</p>
+                                <p className={styles.textTabela}>21g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Cogumelo Paris in Natura</p>
-                                <p className={styles.textoTabela}>39g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Cogumelo Paris in Natura</p>
+                                <p className={styles.textTabela}>39g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Creme de Leite</p>
-                                <p className={styles.textoTabela}>61g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Creme de Leite</p>
+                                <p className={styles.textTabela}>61g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Catchup</p>
-                                <p className={styles.textoTabela}>13g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Catchup</p>
+                                <p className={styles.textTabela}>13g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Mostarda</p>
-                                <p className={styles.textoTabela}>4g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Mostarda</p>
+                                <p className={styles.textTabela}>4g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Óleo</p>
-                                <p className={styles.textoTabela}>2g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Óleo</p>
+                                <p className={styles.textTabela}>2g</p>
                             </div>
                         </div>
                     ) || prato.nome === 'Feijoada' && (
                         <div className={styles.tabela}>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Feijão preto</p>
-                                <p className={styles.textoTabela}>113g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Feijão preto</p>
+                                <p className={styles.textTabela}>113g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Orelha de Porco</p>
-                                <p className={styles.textoTabela}>13g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Orelha de Porco</p>
+                                <p className={styles.textTabela}>13g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Rabo de Porco</p>
-                                <p className={styles.textoTabela}>13g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Rabo de Porco</p>
+                                <p className={styles.textTabela}>13g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Pé de Porco</p>
-                                <p className={styles.textoTabela}>13g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Pé de Porco</p>
+                                <p className={styles.textTabela}>13g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Lombo de Porco</p>
-                                <p className={styles.textoTabela}>7g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Lombo de Porco</p>
+                                <p className={styles.textTabela}>7g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Costelinha</p>
-                                <p className={styles.textoTabela}>13g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Costelinha</p>
+                                <p className={styles.textTabela}>13g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Paio</p>
-                                <p className={styles.textoTabela}>13g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Paio</p>
+                                <p className={styles.textTabela}>13g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Linguiça Portuguesa</p>
-                                <p className={styles.textoTabela}>20g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Linguiça Portuguesa</p>
+                                <p className={styles.textTabela}>20g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Carne Seca</p>
-                                <p className={styles.textoTabela}>5g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Carne Seca</p>
+                                <p className={styles.textTabela}>5g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Cebola</p>
-                                <p className={styles.textoTabela}>30g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Cebola</p>
+                                <p className={styles.textTabela}>30g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Alho</p>
-                                <p className={styles.textoTabela}>1g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Alho</p>
+                                <p className={styles.textTabela}>1g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Bacon defumado</p>
-                                <p className={styles.textoTabela}>33g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Bacon defumado</p>
+                                <p className={styles.textTabela}>33g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Óleo</p>
-                                <p className={styles.textoTabela}>6g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Óleo</p>
+                                <p className={styles.textTabela}>6g</p>
                             </div>
                         </div>
                     ) || prato.nome === 'Macarrão com Molho de Tomate' && (
                         <div className={styles.tabela}>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Macarrão</p>
-                                <p className={styles.textoTabela}>250g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Macarrão</p>
+                                <p className={styles.textTabela}>250g</p>
                             </div>
-                            <div className={styles.linhaTabela}>
-                                <p className={styles.textoTabela}>Molho de tomate</p>
-                                <p className={styles.textoTabela}>50g</p>
+                            <div className={styles.rowTabela}>
+                                <p className={styles.textTabela}>Molho de tomate</p>
+                                <p className={styles.textTabela}>50g</p>
                             </div>
                         </div>
                     )}
@@ -154,23 +154,23 @@ function TelaPrato(props) {
 
                 {/*valores nutricionais */}
                 <div className={styles.containerTelaPrato}>
-                    <h2 className={styles.tituloTabela}>Valores Nutricionais</h2>
+                    <h2 className={styles.titleTabela}>Valores Nutricionais</h2>
                     <div className={styles.tabela}>
-                        <div className={styles.linhaTabela}>
-                            <p className={styles.textoTabela}>Calorias:</p>
-                            <p className={styles.textoTabela}>{prato.calorias}kcal</p>
+                        <div className={styles.rowTabela}>
+                            <p className={styles.textTabela}>Calorias:</p>
+                            <p className={styles.textTabela}>{prato.calorias}kcal</p>
                         </div>
-                        <div className={styles.linhaTabela}>
-                            <p className={styles.textoTabela}>Lipídios:</p>
-                            <p className={styles.textoTabela}>{prato.lipidios}g</p>
+                        <div className={styles.rowTabela}>
+                            <p className={styles.textTabela}>Lipídios:</p>
+                            <p className={styles.textTabela}>{prato.lipidios}g</p>
                         </div>
-                        <div className={styles.linhaTabela}>
-                            <p className={styles.textoTabela}>Fibras:</p>
-                            <p className={styles.textoTabela}>{prato.fibras}g</p>
+                        <div className={styles.rowTabela}>
+                            <p className={styles.textTabela}>Fibras:</p>
+                            <p className={styles.textTabela}>{prato.fibras}g</p>
                         </div>
-                        <div className={styles.linhaTabela}>
-                            <p className={styles.textoTabela}>Carga Glicêmica:</p>
-                            <p className={styles.textoTabela}>{prato.indiceGlicemico}</p>
+                        <div className={styles.rowTabela}>
+                            <p className={styles.textTabela}>Carga Glicêmica:</p>
+                            <p className={styles.textTabela}>{prato.indiceGlicemico}</p>
                         </div>
                     </div>
                 </div>

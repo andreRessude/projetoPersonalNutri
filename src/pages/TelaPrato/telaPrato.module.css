@@ -28,20 +28,20 @@
     /* margin-bottom: 16px; */
 }
 
-.titulo {
+.title {
     font-size: 32px;
     font-weight: bold;
     color: #333;
     margin-bottom: 4px;
 }
 
-.textoPorcao {
+.textPorcao {
     font-size: 16px;
     color: #666;
     font-style: italic;
 }
 
-.tituloTabela {
+.titleTabela {
     font-size: 24px;
     color: #333;
     font-weight: bold;
@@ -64,7 +64,7 @@
 }
 
 
-.linhaTabela {
+.rowTabela {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,7 +74,7 @@
     background-color: #f3f3f3;
 }
 
-.textoTabela {
+.textTabela {
     font-size: 18px;
     color: #444;
 }
@@ -176,20 +176,20 @@
         max-height: 250px;
     }
 
-    .titulo {
+    .title {
         font-size: 20px;
     }
 
-    .tituloTabela {
+    .titleTabela {
         font-size: 16px;
         margin: 15px 0 8px;
     }
     
-    .linhaTabela {
+    .rowTabela {
         height: 24px;
     }
 
-    .textoTabela {
+    .textTabela {
         font-size: 12px;
     }
     
@@ -211,11 +211,11 @@
         max-height: 200px;
     }
     
-    .titulo {
+    .title {
         font-size: 18px;
     }
     
-    .tituloTabela {
+    .titleTabela {
         font-size: 14px;
         margin: 10px 0 6px;
     }
@@ -224,7 +224,7 @@
         gap: 8px;
     }
     
-    .linhaTabela {
+    .rowTabela {
         height: 12px;
     }
     
