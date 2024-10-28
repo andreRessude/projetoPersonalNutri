@@ -19,13 +19,22 @@ function TelaPrato(props) {
     const getRecomendacaoSaudavel = (pratoNome) => {
         switch (pratoNome) {
             case 'Estrogonofe de Frango':
-                return 'Tente usar iogurte natural em vez de creme de leite para reduzir as calorias.';
+                return 'O estrogonofe de frango se preparado da maneira mostrada possui um alto teor de gordura e baixa quantidade de fibras. Para melhor se adequar as necessidades do diabético aconselha-se as seguintes atitudes: <br><br>'+    
+
+                '<b>Trocar o creme leite normal pela opção light,</b> que tem quase 6g de lipídios a menos pela porção descrita do prato. <br>'+
+                'Ou mesmo <b>iogurte grego sem açúcar</b>, que torna o estrogonofe menos gorduroso, pois contém 5,28g de lipídios pela mesma quantidade de porção.';
+            
             case 'Feijoada':
-                return 'Opte por carnes magras e adicione mais legumes para aumentar a quantidade de fibras.';
+                return 'Como a feijoada preparada da maneira mostrada, tende ser uma refeição com alto teor de gordura (lipídios), é aconselhável as seguintes medidas:<br><br>'
+                +
+                '<b>Retirar o Bacon defumado, Rabo de Porco e Paio</b> devido a grande quantidade de gordura contidas em tais ingredientes, além de se tentar <b>preparar a refeição com uma menor quantidade de óleo.</b> <br><br>'+
+                '(Em compensação, se achar necessário pode-se <br>dobrar a quantidade de carne seca</b> utilizada no preparo).';
+            
             case 'Macarrão com Molho de Tomate':
-                return 'Use macarrão integral e adicione mais vegetais para enriquecer o prato.';
-            default:
-                return 'Experimente opções de ingredientes mais saudáveis para este prato.';
+                return 'O macarrão com molho de tomate tende a ser não aconselhável para o consumo do diabético, porém uma forma de consumi-lo de maneira mais adequada é: <br><br>'
+                +
+                '<b>Substituir por macarrão integral</b>, por ter uma quantidade maior de fibras e dar uma maior saciedade, o que se entende por consumir uma menor porção. Além do tipo de carboidrato contido no macarrão integral que demoram mais tempo para ser absorvidos, dando maior saciedade. <br><br>'+
+                'Mas <b>lembre-se</b> que mesmo assim <b>o macarrão não é uma comida muito adequada</b>, pois tem alto índice glicêmico e baixo teor de fibras, se for possível trocar por outro alimento é melhor.';
         }
     };
 
@@ -175,7 +184,7 @@ function TelaPrato(props) {
                 {showModal && (
                     <div className={styles.modal}>
                         <div className={styles.modalContent}>
-                            <p>{getRecomendacaoSaudavel(prato.nome)}</p>
+                            <p dangerouslySetInnerHTML={{ __html: getRecomendacaoSaudavel(prato.nome) }} />
                             <button className={styles.modalVoltar} onClick={() => setShowModal(false)}>Fechar</button>
                         </div>
                     </div>
