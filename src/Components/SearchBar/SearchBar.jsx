@@ -6,6 +6,7 @@ export default function SearchBar({ onSearch }) {
     };
 
     return (
+        //barra de pesquisa
         <input 
             type='search' 
             className={styles.searchBar} 

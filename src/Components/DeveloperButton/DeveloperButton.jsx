@@ -5,14 +5,13 @@ import styles from './DeveloperButton.module.css';
 const DeveloperButton = () => {
     const navigate = useNavigate();
 
-    const handleClick = () => {
+    const handleClick = () => {     //funcao de troca de tela
         navigate('/teladeveloper');
     };
 
     return (
-        <button onClick={handleClick} className={styles.developerButton}>
-            Modo Desenvolvedor
-        </button>
+        //botao 'modo desenvolvedor'
+        <button onClick={handleClick} className={styles.developerButton}>Modo Desenvolvedor</button>
     );
 };
 

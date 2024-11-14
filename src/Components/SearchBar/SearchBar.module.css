@@ -1,3 +1,4 @@
+/*barra de pesquisa*/
 .searchBar {
     width: 100%;
     max-width: 900px;
@@ -14,6 +15,7 @@
     box-shadow: 0 0 5px rgba(255, 87, 51, 0.2);
 }
 
+/*tablets*/
 @media (max-width: 768px) {
     .searchBar {
         width: 90%;
@@ -22,6 +24,7 @@
     }
 }
 
+/*celulares*/
 @media (max-width: 480px) {
     .searchBar {
         width: 100%;

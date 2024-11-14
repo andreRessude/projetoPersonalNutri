@@ -1,3 +1,4 @@
+/*botao de modo desenvolvedor*/
 .developerButton {
     margin: 8px 24px;
     background-color: #e74c3c; 
@@ -12,26 +13,31 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: 16px;
+    left: 16px;
 }
-
 .developerButton:hover {
     background-color: #b71c1c; 
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
+/*tablets*/
 @media (max-width: 768px){
     .developerButton{
         font-size: 14px;
         padding: 14px;
+        left: 8px;
+        bottom: 8px;
     }
 }
+
+/*celulares*/
 @media (max-width: 480px){
     .developerButton{
         padding: 14px;
-        font-size: 12px;  
+        font-size: 12px;
+        bottom: 0;
+        left: 0;  
     }
-    
 }

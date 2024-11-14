@@ -55,6 +55,7 @@
     font-size: 32px;
 }
 
+/*tablets*/
 @media (max-width: 768px) {
     .listaCards {
         flex-direction: column;
@@ -62,6 +63,7 @@
     }
 }
 
+/*celulares*/
 @media (max-width: 480px) { /*cell*/
     .cardContainer {
         width: 250px;

@@ -1,4 +1,4 @@
-/* Container principal */
+/* container principal */
 .developerContainer {
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Botões CRUD */
+/* botoes CRUD */
 .buttonsContainer {
     display: flex;
     gap: 24px;
@@ -34,8 +34,8 @@ h2 {
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s;
-    flex: 1 1 45%; /* Define cada botão ocupando metade da linha em telas menores */
-    margin: 5px 0; /* Espaçamento entre linhas de botões */
+    flex: 1 1 45%; /* define cada botão ocupando metade da linha em telas menores */
+    margin: 5px 0;
 }
 .buttonsContainer button:hover {
     color: #fff;

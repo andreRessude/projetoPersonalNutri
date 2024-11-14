@@ -18,14 +18,14 @@ function Home() {
     return (
         <>
             <div className={styles.components}>
-                <Title/>
+                <Title/>{/*titulo e logo*/}
                 <div className={styles.row}>
-                    <SearchBar onSearch={handleSearch} />
-                    <CameraButton/>
+                    <SearchBar onSearch={handleSearch}/>{/*barra de pesquisa*/}
+                    <CameraButton/> {/*botao da camera*/}
                 </div>
-                <Pratos searchQuery={searchQuery} />
-                <DeveloperButton />
-                <Footer/>
+                <Pratos searchQuery={searchQuery}/>{/*cards dos alimentos*/}
+                <DeveloperButton/>{/*botao para o modo desenvolvedor*/}
+                <Footer/>{/*rodapé*/}
             </div>
         </>
     );

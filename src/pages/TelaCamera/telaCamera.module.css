@@ -27,7 +27,7 @@
     margin-bottom: 20px;
 }
 
-/* Barra Simulada para Celulares */
+/* barra simulada celulares */
 .telaCamera::before {
     content: '';
     position: absolute;
@@ -39,7 +39,7 @@
     z-index: 10;
 }
 
-/* Botão Simulado para Celulares */
+/* botao simulado para celulares */
 .telaCamera::after {
     content: '';
     position: absolute;
@@ -65,7 +65,6 @@
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
-
 .imagePreviewImg:hover {
     transform: scale(1.03);
 }
@@ -79,7 +78,7 @@
     align-items: center;
 }
 
-/* btn selecionar imagem */
+/* botao selecionar imagem */
 .photoButton {
     padding: 12px 20px;
     font-size: 16px;
@@ -93,7 +92,6 @@
     text-align: center;
     width: 80%;
 }
-
 .photoButton:hover {
     background-color: #002855;
 }
@@ -102,7 +100,7 @@
     display: none;
 }
 
-/* botoes de limpar e voltar */
+/* botoes de limpar */
 .clearButton {
     padding: 10px 20px;
     font-size: 14px;
@@ -114,14 +112,44 @@
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    width: 80%;
+    width: 85%;
     text-align: center;
 }
-
 .clearButton:hover {
     background-color: #c0392b;
 }
 
+/* texto do prato identificado  */
+.identifiedDish {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* botao de detalhes */
+.detailsButton {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #004696;
+    background-color: #f8f9fa;
+    border: 2px solid #004696;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 85%;
+    display: block;
+    margin: 10px auto;
+}
+.detailsButton:hover {
+    background-color: #002855;
+    color: #fff;
+}
+
+/*botao voltar*/
 .botaoVoltar {
     margin: 12px;
     padding: 12px 20px;
@@ -136,43 +164,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
-
 .botaoVoltar:hover {
     background-color: #b71c1c;
     transform: scale(1.05);
 }
-
-/* texto do prato ideintificado  */
-.identifiedDish {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin: 10px 0;
-    text-align: center;
-}
-
-/* botao de detalhes */
-.detailsButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #e74c3c;
-    background-color: #f8f9fa;
-    border: 2px solid #e74c3c;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    width: 80%;
-    display: block;
-    margin: 10px auto;
-}
-
-.detailsButton:hover {
-    background-color: #e74c3c;
-    color: #fff;
-}
-
 
 
 /* Tablets */
@@ -181,25 +176,22 @@
         max-width: 350px;
         padding: 15px;
     }
-
     .telaCamera {
         height: 350px;
     }
     .textPlaceholder{
         font-size: 24px;
     }
-
-
-    .photoButton, .clearButton {
+    .photoButton, .clearButton, .detailsButton {
         font-size: 14px;
         padding: 10px;
     }
     .botaoVoltar{
         position: fixed;
-        bottom: 16px;
-        left: 8px;
-        font-size: 16px;
+        font-size: 12px;
         padding: 12px 24px;
+        bottom: 8px;
+        left: 8px;
         width: auto;
     }
 }
@@ -210,25 +202,21 @@
         max-width: 280px;
         padding: 10px;
     }
-
     .telaCamera {
         height: 300px;
         border-radius: 30px; /* Ajusta para parecer mais com um celular */
     }
-
     .textPlaceholder{
         font-size: 18px;
     }
-
-    .photoButton, .clearButton {
+    .photoButton, .clearButton, .detailsButton {
         font-size: 12px;
         padding: 8px;
     }
     .botaoVoltar{
-        position: fixed;
-        bottom: 0;
-        left: 8px;
         font-size: 10px;
         padding: 10px 20px;
+        bottom: 0;
+        left: 0;
     }
 }
