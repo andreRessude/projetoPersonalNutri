@@ -192,8 +192,12 @@
     .textTabela {
         font-size: 12px;
     }
+
+    .modalContent p {
+        font-size: 12px;
+    }
     
-    .botaoVoltar {
+    .botaoVoltar, .botaoRecomendacao, .modalVoltar {
         padding: 10px 18px;
         font-size: 14px;
     }
@@ -227,8 +231,12 @@
     .rowTabela {
         height: 12px;
     }
+
+    .modalContent p {
+        font-size: 12px;
+    }
     
-    .botaoVoltar {
+    .botaoVoltar, .botaoRecomendacao, .modalVoltar {
         padding: 8px 16px;
         font-size: 12px;
     }

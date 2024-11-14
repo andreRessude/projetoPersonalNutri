@@ -170,7 +170,7 @@ function TelaPrato(props) {
                         </div>
                         <div className={styles.rowTabela}>
                             <p className={styles.textTabela}>Carga Glicêmica:</p>
-                            <p className={styles.textTabela}>{prato.indiceGlicemico}</p>
+                            <p className={styles.textTabela}>{prato.carga_glicemica}</p>
                         </div>
                     </div>
                 </div>

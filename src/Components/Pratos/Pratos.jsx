@@ -47,14 +47,14 @@ function Pratos({ searchQuery }) {  //recebe parametro searchQuery
     return (
         <>
             <div className={styles.listaCards}>
-                {/* Verifique se a lista de pratos filtrados está vazia */}
+                {/* verifica se a lista de pratos filtrados está vazia */}
                 {pratosFiltrados.length === 0 ? (
-                    // Se estiver vazia e houver um termo de pesquisa, mostre a mensagem
+                    // se estiver vazia e houver um termo de pesquisa, mostre a mensagem
                     searchQuery && (
                         <p className={styles.textoPratoNaoEncontrado}>Prato não Encontrado!</p>
                     )
                 ) : (
-                    // Se não estiver vazia, mostre a lista de pratos filtrados
+                    // se não estiver vazia, mostre a lista de pratos filtrados
                     pratosFiltrados.map((prato) => (
                         <div key={prato.id} className={styles.cardContainer} onClick={() => changePage("/telaprato", prato)}>
                             <img src={prato.imagem} alt={prato.nome} className={styles.cardImage}/>
