@@ -18,21 +18,42 @@ export async function buscarAlimento() {
     return await response.json();
 }
 
+//ERRO NAS ENDPOINTS 'POST' E 'PUT'
 export async function adicionarAlimento(alimento) {
-    await fetch('http://localhost:8080/api/personalnutri/alimentos/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(alimento),
-    });
+    try {
+        const response = await fetch('http://localhost:8080/api/personalnutri/alimentos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(alimento), //escreve o json corretamente
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Erro ${response.status}: ${response.statusText}`);
+        }
+    } catch (error) {
+        console.log(JSON.stringify(alimento))
+        console.error("ERRO AO ADICIONAR ALIMENTO:", error);
+        throw error;
+    }
 }
 
 export async function editarAlimento(id, alimento) {
-    await fetch(`http://localhost:8080/api/personalnutri/alimentos/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(alimento),
-    });
+    try {
+        const response = await fetch(`http://localhost:8080/api/personalnutri/alimentos/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(alimento),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro ${response.status}: ${response.statusText}`);
+        }
+    } catch (error) {
+        console.error("Erro ao editar alimento:", error);
+        throw error;
+    }
 }
+
 
 export async function deletarAlimento(id) {
     await fetch(`http://localhost:8080/api/personalnutri/alimentos/${id}`, {
