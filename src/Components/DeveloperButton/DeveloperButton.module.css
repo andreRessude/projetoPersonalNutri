@@ -1,6 +1,6 @@
 .developerButton {
     margin: 8px 24px;
-    background-color: #004696; 
+    background-color: #e74c3c; 
     color: #fff;
     padding: 18px 28px; 
     border: none; 
@@ -17,7 +17,7 @@
 }
 
 .developerButton:hover {
-    background-color: #002855; 
+    background-color: #b71c1c; 
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }

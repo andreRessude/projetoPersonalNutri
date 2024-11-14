@@ -6,27 +6,27 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #004696;
+    background-color: #e74c3c;
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
     box-shadow: 0px 4px 8px rgba(0,0, 0, 0.3);
 }
 .cameraButton:hover {
-    background-color: #002855;
+    background-color: #b71c1c;
     transform: scale(1.05);
 }
-.cameraButton:active {
+.cameraButton:active {  /* quando está ativo */
     transform: scale(0.95); /* efeito de "clique" */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* reduz a sombra ao clique */
 }
 
 /*icone da camera*/
 .cameraIcon {
-    width: 55%;
-    height: 55%;
+    width: 60%;
 }
 
+/*celulares*/
 @media (max-width: 768px) { /*tablets*/
     .cameraButton {
         width: 60px;
@@ -34,13 +34,10 @@
     }
 }
 
+/*tablets*/
 @media (max-width: 480px) { /*cell*/
     .cameraButton {
-        width: 45px;
-        height: 45px;
-    }
-    .cameraIcon {
-        width: 55%;
-        height: 55%;
+        width: 50px;
+        height: 50px;
     }
 }
