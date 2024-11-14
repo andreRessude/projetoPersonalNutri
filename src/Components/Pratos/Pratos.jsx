@@ -1,6 +1,8 @@
+//ALTERAR CAMINHO PARA PEGAR DADOS DO BDD
+
 import { useState, useEffect } from "react"; 
 import { useNavigate } from "react-router-dom";
-import { buscarPratos } from "../../Services/api/api";
+import { buscarPratos } from "../../Services/api/api";  //ALTERAR PARA 'buscarAlimentos' QUANDO ESTIVER TD PRONTO
 import styles from "./Pratos.module.css"
 
 function Pratos({ searchQuery }) {  //recebe parametro searchQuery
@@ -47,14 +49,14 @@ function Pratos({ searchQuery }) {  //recebe parametro searchQuery
     return (
         <>
             <div className={styles.listaCards}>
-                {/* verifica se a lista de pratos filtrados está vazia */}
+                {/* Verifique se a lista de pratos filtrados está vazia */}
                 {pratosFiltrados.length === 0 ? (
-                    // se estiver vazia e houver um termo de pesquisa, mostre a mensagem
+                    // Se estiver vazia e houver um termo de pesquisa, mostre a mensagem
                     searchQuery && (
                         <p className={styles.textoPratoNaoEncontrado}>Prato não Encontrado!</p>
                     )
                 ) : (
-                    // se não estiver vazia, mostre a lista de pratos filtrados
+                    // Se não estiver vazia, mostre a lista de pratos filtrados
                     pratosFiltrados.map((prato) => (
                         <div key={prato.id} className={styles.cardContainer} onClick={() => changePage("/telaprato", prato)}>
                             <img src={prato.imagem} alt={prato.nome} className={styles.cardImage}/>

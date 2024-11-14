@@ -12,3 +12,30 @@ export async function buscarPratos() {
         throw error;
     }
 }
+
+export async function buscarAlimento() {
+    const response = await fetch('http://localhost:8080/api/personalnutri/alimentos');
+    return await response.json();
+}
+
+export async function adicionarAlimento(alimento) {
+    await fetch('http://localhost:8080/api/personalnutri/alimentos/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(alimento),
+    });
+}
+
+export async function editarAlimento(id, alimento) {
+    await fetch(`http://localhost:8080/api/personalnutri/alimentos/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(alimento),
+    });
+}
+
+export async function deletarAlimento(id) {
+    await fetch(`http://localhost:8080/api/personalnutri/alimentos/${id}`, {
+        method: 'DELETE',
+    });
+}

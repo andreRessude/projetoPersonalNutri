@@ -2,7 +2,8 @@ import Title from '../../Components/Title/Title';
 import SearchBar from '../../Components/SearchBar/SearchBar'; 
 import CameraButton from '../../Components/CameraButton/CameraButton';
 import Pratos from '../../Components/Pratos/Pratos'; // lista de pratos da api
-import Footer from '../../Components/Footer/Footer'; 
+import Footer from '../../Components/Footer/Footer';
+import DeveloperButton from '../../Components/DeveloperButton/DeveloperButton'; 
 import { useState } from 'react';
 import styles from "./Home.module.css";
 
@@ -14,8 +15,6 @@ function Home() {
         setSearchQuery(query);  // atualiza o estado com o valor recebido
     };
 
-    
-
     return (
         <>
             <div className={styles.components}>
@@ -25,6 +24,7 @@ function Home() {
                     <CameraButton/>
                 </div>
                 <Pratos searchQuery={searchQuery} />
+                <DeveloperButton />
                 <Footer/>
             </div>
         </>

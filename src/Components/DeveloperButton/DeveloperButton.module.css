@@ -1,0 +1,14 @@
+.developerButton {
+    background-color: #f6390f;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.developerButton:hover {
+    background-color: #fe6340;
+}

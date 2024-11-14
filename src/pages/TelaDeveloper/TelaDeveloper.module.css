@@ -1,0 +1,105 @@
+.developerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f6f8;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.buttonsContainer button {
+    padding: 10px 15px;
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.buttonsContainer button:hover {
+    background-color: #f6390f;
+}
+
+.alimentosList {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.alimentosList button {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.alimentosList button:hover {
+    background-color: #5a6268;
+}
+
+.alimentosList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.alimentosList li {
+    font-size: 16px;
+    padding: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.alimentoForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.alimentoForm input {
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alimentoForm button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.alimentoForm button:hover {
+    background-color: #218838;
+}
