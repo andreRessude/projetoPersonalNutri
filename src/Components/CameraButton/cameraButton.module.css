@@ -1,28 +1,28 @@
-.cameraButton { /*botao da camera*/
+/*botao da camera*/
+.cameraButton {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #002855;
+    background-color: #004696;
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0,0, 0, 0.3); /*sombras*/
+    box-shadow: 0px 4px 8px rgba(0,0, 0, 0.3);
 }
-
 .cameraButton:hover {
-    background-color: #001D3D; /*escurecer*/
-    transform: scale(1.05); 
+    background-color: #002855;
+    transform: scale(1.05);
 }
-
 .cameraButton:active {
-    transform: scale(0.95); /* Efeito de "clique" */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Reduz a sombra ao clique */
+    transform: scale(0.95); /* efeito de "clique" */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* reduz a sombra ao clique */
 }
 
-.cameraIcon {   /*icone da camera*/
+/*icone da camera*/
+.cameraIcon {
     width: 55%;
     height: 55%;
 }

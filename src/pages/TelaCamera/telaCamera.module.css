@@ -85,7 +85,7 @@
     font-size: 16px;
     font-weight: bold;
     color: #fff;
-    background-color: #e74c3c;
+    background-color: #004696;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -95,7 +95,7 @@
 }
 
 .photoButton:hover {
-    background-color: #c0392b;
+    background-color: #002855;
 }
 
 .fileInput {
@@ -120,6 +120,26 @@
 
 .clearButton:hover {
     background-color: #c0392b;
+}
+
+.botaoVoltar {
+    margin: 12px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 85%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.botaoVoltar:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
 }
 
 /* texto do prato ideintificado  */
@@ -165,10 +185,22 @@
     .telaCamera {
         height: 350px;
     }
+    .textPlaceholder{
+        font-size: 24px;
+    }
+
 
     .photoButton, .clearButton {
         font-size: 14px;
         padding: 10px;
+    }
+    .botaoVoltar{
+        position: fixed;
+        bottom: 16px;
+        left: 8px;
+        font-size: 16px;
+        padding: 12px 24px;
+        width: auto;
     }
 }
 
@@ -184,8 +216,19 @@
         border-radius: 30px; /* Ajusta para parecer mais com um celular */
     }
 
+    .textPlaceholder{
+        font-size: 18px;
+    }
+
     .photoButton, .clearButton {
         font-size: 12px;
         padding: 8px;
+    }
+    .botaoVoltar{
+        position: fixed;
+        bottom: 0;
+        left: 8px;
+        font-size: 10px;
+        padding: 10px 20px;
     }
 }

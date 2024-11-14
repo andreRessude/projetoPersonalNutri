@@ -1,14 +1,37 @@
 .developerButton {
-    background-color: #f6390f;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    margin: 8px 24px;
+    background-color: #004696; 
+    color: #fff;
+    padding: 18px 28px; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .developerButton:hover {
-    background-color: #fe6340;
+    background-color: #002855; 
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+}
+
+@media (max-width: 768px){
+    .developerButton{
+        font-size: 14px;
+        padding: 14px;
+    }
+}
+@media (max-width: 480px){
+    .developerButton{
+        padding: 14px;
+        font-size: 12px;  
+    }
+    
 }

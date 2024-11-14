@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './telaDeveloper.module.css';
+import styles from './TelaDeveloper.module.css';
 import { buscarAlimento, adicionarAlimento, editarAlimento, deletarAlimento } from '../../Services/api/api';
 
 function TelaDeveloper() {
@@ -16,6 +16,8 @@ function TelaDeveloper() {
     const [cargaGlicemica, setCargaGlicemica] = useState('');
     const [alimentos, setAlimentos] = useState([]);
 
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
 
     const handleOperation = (op) => {
@@ -39,14 +41,22 @@ function TelaDeveloper() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        let message = '';
+        
         if (operation === 'adicionar') {
             await adicionarAlimento({ nome, lipidios, calorias, fibras, carga_glicemica: cargaGlicemica });
+            message = 'Alimento adicionado com sucesso!';
         } else if (operation === 'editar') {
             await editarAlimento(alimentoId, { nome, lipidios, calorias, fibras, carga_glicemica: cargaGlicemica });
+            message = 'Alimento atualizado com sucesso!';
         } else if (operation === 'deletar') {
             await deletarAlimento(alimentoId);
+            message = 'Alimento deletado com sucesso!';
         }
+        
         handleGetAlimentos();
+        setSuccessMessage(message);
+        setShowSuccessModal(true); // Mostra o modal de sucesso
         clearForm();
     };
 
@@ -57,12 +67,21 @@ function TelaDeveloper() {
     return (
         <div className={styles.developerContainer}>
             <h2>Modo Desenvolvedor</h2>
-
+            
+            {/* BOTOES CRUD */}
             <div className={styles.buttonsContainer}>
-                <button onClick={() => handleOperation('mostrar')}>Mostrar Alimentos</button>
-                <button onClick={() => handleOperation('adicionar')}>Adicionar Alimento</button>
-                <button onClick={() => handleOperation('editar')}>Editar Alimento</button>
-                <button onClick={() => handleOperation('deletar')}>Deletar Alimento</button>
+            <button className={`${operation === 'mostrar' ? styles.active : ''}`} onClick={() => handleOperation('mostrar')}>
+                Mostrar Alimentos
+            </button>
+            <button className={`${operation === 'adicionar' ? styles.active : ''}`} onClick={() => handleOperation('adicionar')}>
+                Adicionar Alimento
+            </button>
+            <button className={`${operation === 'editar' ? styles.active : ''}`} onClick={() => handleOperation('editar')}>
+                Editar Alimento
+            </button>
+            <button className={`${operation === 'deletar' ? styles.active : ''}`} onClick={() => handleOperation('deletar')}>
+                Deletar Alimento
+            </button>
             </div>
 
             {/* GET */}
@@ -138,9 +157,19 @@ function TelaDeveloper() {
                         {operation.charAt(0).toUpperCase() + operation.slice(1)} Alimento
                     </button>
                 </form>
-
             )}
-            {/*botao voltar*/}
+
+            {/* MODAL DE SUCESSO */}
+            {showSuccessModal && (
+                <div className={styles.modal}>
+                    <div className={styles.modalContent}>
+                        <p>{successMessage}</p>
+                        <button onClick={() => setShowSuccessModal(false)}>Fechar</button>
+                    </div>
+                </div>
+            )}
+
+            {/*VOLTAR*/}
             <button className={styles.botaoVoltar} onClick={() => changePage("/")}>Voltar</button>
         </div>
     );

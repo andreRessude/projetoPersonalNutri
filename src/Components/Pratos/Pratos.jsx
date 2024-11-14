@@ -1,8 +1,6 @@
-//ALTERAR CAMINHO PARA PEGAR DADOS DO BDD
-
 import { useState, useEffect } from "react"; 
 import { useNavigate } from "react-router-dom";
-import { buscarPratos } from "../../Services/api/api";  //ALTERAR PARA 'buscarAlimentos' QUANDO ESTIVER TD PRONTO
+import { buscarAlimento } from "../../Services/api/api";  //ALTERAR PARA 'buscarAlimentos' QUANDO ESTIVER TD PRONTO
 import styles from "./Pratos.module.css"
 
 function Pratos({ searchQuery }) {  //recebe parametro searchQuery
@@ -15,7 +13,7 @@ function Pratos({ searchQuery }) {  //recebe parametro searchQuery
         async function carregarPratos() {
             try {
                 console.log("Consultando API...")
-                const data = await buscarPratos();  //chama a funcao e retorna com os dados dos pratos
+                const data = await buscarAlimento();  //chama a funcao e retorna com os dados dos pratos
                 console.log("API consultada!");
                 setlistaPratos(data);   //set da lista completa de pratos
                 setPratosFiltrados(data);   //inicialmente os pratos filtrados são os mesmo das lista completa, mas depois vão sendo alterados conforme o input de pesquisa muda seu valor

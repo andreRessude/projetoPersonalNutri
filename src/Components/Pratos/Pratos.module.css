@@ -1,25 +1,25 @@
 /* container dos cards */
 .listaCards {
     display: flex;
-    flex-wrap: wrap; /* Permite que os cards se movam para a linha seguinte quando necessário */
-    gap: 16px; /* Espaçamento entre os cards */
-    justify-content: center; /* Centraliza os cards horizontalmente */
-    padding: 16px; /* Espaçamento interno ao redor dos cards */
-    box-sizing: border-box; /* Inclui padding e border na largura e altura total do elemento */
+    flex-wrap: wrap;
+    gap: 24px; 
+    justify-content: center;
+    padding: 8px;
+    box-sizing: border-box;
+    max-width: 1000px;
 }
 
 /* card */
 .cardContainer {    
-    position: relative;   /*Para que a imagem e o conteúdo se sobreponham*/
-    width: 300px; /* Largura fixa para os cards */
-    height: 200px; /* Altura fixa para os cards */
-    overflow: hidden; /* Garante que nada saia da área do card */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar os cards */
-    cursor: pointer; /* Cursor de ponteiro ao passar sobre o card */
-    transition: transform 0.3s ease; /* Transição suave para o efeito de hover */
+    position: relative;   /*para que a imagem e o conteúdo se sobreponham*/
+    width: 300px; 
+    height: 200px; 
+    overflow: hidden;   /* garante que nada saia da area do card */
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    cursor: pointer; 
+    transition: transform 0.3s ease; 
 }
-
 .cardContainer:hover {
     transform: scale(1.05);
 }
@@ -34,21 +34,21 @@
 
 /* conteúdo do card */
 .cardContent {
-    position: absolute;   /*Para sobrepor a imagem de fundo*/
-    bottom: 0; /* Posiciona o conteúdo na parte inferior do card */
+    position: absolute;   /*sobrepoe a imagem de fundo*/
+    bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-    color: #fff; /* Cor do texto */
-    padding: 16px; /* Espaçamento interno */
-    box-sizing: border-box; /* Inclui padding na largura e altura total */
+    background: rgb(0, 70, 150, 0.6);
+    color: #fff;
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 /* texto do card */
 .cardTitle {
-    margin: 0; /* Remove margens padrão do título */
-    font-size: 18px; /* Tamanho da fonte do título */
-    font-weight: bold; /* Deixa o texto em negrito */
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .textoPratoNaoEncontrado{
@@ -57,8 +57,8 @@
 
 @media (max-width: 768px) {
     .listaCards {
-        flex-direction: column; /* Alinha os cards verticalmente */
-        align-items: center; /* Centraliza os cards horizontalmente */
+        flex-direction: column;
+        align-items: center;
     }
 }
 

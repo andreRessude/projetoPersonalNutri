@@ -1,3 +1,4 @@
+/* Container principal */
 .developerContainer {
     display: flex;
     flex-direction: column;
@@ -10,33 +11,46 @@
     margin: auto;
 }
 
+/* Título */
 h2 {
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
 }
 
+/* Botões CRUD */
 .buttonsContainer {
     display: flex;
-    gap: 10px;
+    gap: 24px;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Ajusta os botões em tela menor */
 }
-
 .buttonsContainer button {
     padding: 10px 15px;
-    background-color: #FF5733;
-    color: white;
+    background-color: #ced4da;
+    color: #000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    flex: 1 1 45%; /* Define cada botão ocupando metade da linha em telas menores */
+    margin: 5px 0; /* Espaçamento entre linhas de botões */
 }
-
 .buttonsContainer button:hover {
-    background-color: #f6390f;
+    color: #fff;
+    background-color: #d32f2f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.05);
+}
+.buttonsContainer button.active {
+    color: #fff;
+    background-color: #d32f2f; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.1); 
 }
 
+/* Lista de alimentos */
 .alimentosList {
     width: 100%;
     background-color: #fff;
@@ -48,33 +62,33 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* botao de atualizar */
 .alimentosList button {
     margin-bottom: 10px;
     padding: 8px 12px;
-    background-color: #6c757d;
+    background-color: #004696;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
 }
-
 .alimentosList button:hover {
-    background-color: #5a6268;
+    background-color: #002855;
+    transform: scale(1.05);
 }
-
 .alimentosList ul {
     list-style: none;
     padding: 0;
 }
-
 .alimentosList li {
     font-size: 16px;
     padding: 8px;
     border-bottom: 1px solid #e0e0e0;
 }
 
+/* formulario */
 .alimentoForm {
     display: flex;
     flex-direction: column;
@@ -82,6 +96,7 @@ h2 {
     width: 100%;
 }
 
+/* inputs */
 .alimentoForm input {
     padding: 8px;
     border: 1px solid #ced4da;
@@ -89,17 +104,129 @@ h2 {
     font-size: 16px;
 }
 
+/* botao de submit */
 .alimentoForm button {
-    padding: 10px 15px;
-    background-color: #28a745;
-    color: white;
+    width: 100%;
+    padding: 12px;
+    background-color: #004696; 
+    color: #fff; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+.alimentoForm button:hover {
+    background-color: #002855;
+    transform: scale(1.05);
 }
 
-.alimentoForm button:hover {
-    background-color: #218838;
+/* botao de voltar */
+.botaoVoltar {
+    margin: 12px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    color: #ffffff;
+    background-color: #d32f2f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.botaoVoltar:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/* modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.modalContent p{
+    font-weight: bold;
+    font-size: 18px;
+}
+.modalContent button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ed1313;
+    color: #fff;
+    transition: all 0.1s ease-in-out;
+}
+.modalContent button:hover{
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* tablets */
+@media (max-width: 768px) {
+    .developerContainer {
+        padding: 15px;
+        max-width: 90%;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .buttonsContainer button {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+    .alimentosList {
+        max-height: 250px;
+    }
+    .alimentosList button{
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* celulares */
+@media (max-width: 480px) {
+    .developerContainer {
+        padding: 10px;
+        max-width: 100%;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    .buttonsContainer button {
+        font-size: 12px;
+        padding: 10px;
+        flex: 1 1 100%;
+    }
+    .alimentosList button{
+        padding: 8px;
+        font-size: 12px;
+    }
+    .alimentoForm input {
+        font-size: 14px;
+    }
+    .alimentoForm button,
+    .botaoVoltar {
+        font-size: 15px;
+        padding: 10px;
+    }
+    .modalContent p {
+        font-size: 16px;
+    }
 }
