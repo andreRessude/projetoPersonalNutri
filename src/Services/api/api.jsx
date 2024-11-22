@@ -28,6 +28,7 @@ export async function buscarAlimento() {
 }
 
 //Endpoint POST
+// Arrumar essa entrada de dados da funcao
 export async function adicionarAlimento(alimento) {
     try {
         const response = await fetch('http://localhost:8080/api/personalnutri/alimentos', {
@@ -45,6 +46,7 @@ export async function adicionarAlimento(alimento) {
         throw error;
     }
 }
+
 
 //Endpoint PUT
 export async function editarAlimento(id, alimento) {
