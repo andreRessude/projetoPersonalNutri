@@ -47,39 +47,32 @@ function TelaDeveloper() {
         // Criar form data para enviar a imagem junto aos outros dados
         const formData = new FormData();
         formData.append('nome', nome);
-        formData.append('lipidios', lipidios);
-        formData.append('calorias', calorias);
-        formData.append('fibras', fibras);
-        formData.append('carga_glicemica', cargaGlicemica);
+        formData.append('lipidios', parseFloat(lipidios) || 0);
+        formData.append('calorias', parseFloat(calorias) || 0);
+        formData.append('fibras', parseFloat(fibras) || 0);
+        formData.append('carga_glicemica', parseFloat(cargaGlicemica) || 0);
         if (recomendacaoSaudavel) formData.append('recomendacaoSaudavel', recomendacaoSaudavel);
-        
-
-        if (operation === 'adicionar') {
-            if (image) {
+        if (imagem) formData.append('imagem', imagem);
+    
+        try {
+            if (operation === 'adicionar') {
                 await adicionarAlimento(formData);
+                message = "Alimento adicionado com sucesso!";
             }
-            // if (imagem){
-            //     await adicionarAlimento(formData, imagem)
-            //     message = 'Alimento adicionado com sucesso!';
-            // } else {
-            //     await adicionarAlimento(formData, null); // Envia os dados para o backend
-            //     message = 'Alimento adicionado com sucesso!';
-            // }
-            if (imagem) adicionarAlimento()
-        } else if (operation === 'editar') {
-            if (imagem){
-                await editarAlimento(alimentoId, formData, imagem)
-                message = 'Alimento editado com sucesso!';
-            } else {
-                await editarAlimento(alimentoId, formData, null); // Envia os dados para o backend
+            else if (operation === 'editar' && alimentoId) {
+                await editarAlimento(alimentoId, formData)
                 message = 'Alimento editado com sucesso!';
             }
-        } else if (operation === 'deletar') {
-            await deletarAlimento(alimentoId);
-            message = 'Alimento deletado com sucesso!';
+            else if (operation === 'deletar' && alimentoId) {
+                await deletarAlimento(alimentoId);
+                message = 'Alimento deletado com sucesso!';
+            }
+            handleGetAlimentos();
+        } catch (error) {
+            console.error("Erro ao realizar a operação: ", error);
+            message = `Erro ao ${operation === 'adicionar' ? 'adicionar' : operation === 'editar' ? 'editar' : 'deletar'} alimento`;
         }
 
-        handleGetAlimentos();
         setSuccessMessage(message);
         setShowSuccessModal(true);
         clearForm();
@@ -183,9 +176,11 @@ function TelaDeveloper() {
                             <input
                                 type="file"
                                 accept="image/*"
-                                placeholder="Imagem Alimento"
-                                value={imagem}
-                                onChange={(e) => setImagem(e.target.files[0])}
+                                onChange={(e) => {
+                                    if (e.target.files && e.target.files[0]) {
+                                        setImagem(e.target.files[0]);
+                                    }
+                                }}
                             />
                         </>
                     )}
