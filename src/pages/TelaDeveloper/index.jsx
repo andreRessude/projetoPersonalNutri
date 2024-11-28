@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function TelaDeveloper() {
   const navigate = useNavigate();
+  const [idAlimento, setIdAlimento] = useState("");
   const [operation, setOperation] = useState("");
   const [mode, setMode] = useState(true); // true = alimento, false = prato
   const [alimentosSelecionados, setAlimentosSelecionados] = useState([]); // Lista de IDs de alimentos para o prato
@@ -36,6 +37,7 @@ function TelaDeveloper() {
         // Verifique se o alimento foi encontrado (ou se é um erro)
         if (alimento && !alimento.error) {
           // Alimento encontrado, adicione à lista
+
           setAlimentosSelecionados([...alimentosSelecionados, id]);
         } else {
           console.error("Alimento não encontrado:", id);
@@ -63,33 +65,45 @@ function TelaDeveloper() {
   };
 
   const onSubmit = async (data) => {
-    console.log(data);
+    console.log(alimentosSelecionados)
     try {
       let message = "";
       const itemId = data.deleteId;
-      const newItem = {
+      const newAlimento = {
         nome: data.nome,
-        lipidios: data.lipidios,
-        calorias: data.calorias,
-        fibras: data.fibras,
-        cargaGlicemica: data.cargaGlicemica,
+        lipidios: parseFloat(data.lipidios),
+        calorias: parseFloat(data.calorias),
+        fibras: parseFloat(data.fibras),
+        cargaGlicemica: parseFloat(data.cargaGlicemica),
         recomendacaoSaudavel: data.recomendacaoSaudavel,
         imagemUrl: data.imagemUrl,
+        mode: mode,
+      };
+      const newPrato = {
+        nome: data.nome,
+        lipidios: parseFloat(data.lipidios),
+        calorias: parseFloat(data.calorias),
+        fibras: parseFloat(data.fibras),
+        cargaGlicemica: parseFloat(data.cargaGlicemica),
+        recomendacaoSaudavel: data.recomendacaoSaudavel,
+        imagemUrl: data.imagemUrl,
+        mode: mode,
+        idAlimento: alimentosSelecionados,
       };
       if (operation === "adicionar") {
         if (mode) {
-          await adicionarAlimento(newItem);
+          await adicionarAlimento(newAlimento);
           message = "Alimento adicionado com sucesso!";
         } else {
-          await adicionarPrato(newItem);
+          await adicionarPrato(newPrato);
           message = "Prato adicionado com sucesso!";
         }
       } else if (operation === "editar") {
         if (mode) {
-          await editarAlimento(itemId, newItem);
+          await editarAlimento(itemId, newAlimento);
           message = "Alimento atualizado com sucesso!";
         } else {
-          await editarPrato(itemId, newItem);
+          await editarPrato(itemId, newPrato);
           message = "Prato atualizado com sucesso!";
         }
       } else if (operation === "deletar") {
@@ -260,13 +274,12 @@ function TelaDeveloper() {
                     <input
                       type="number"
                       placeholder="ID do Alimento"
-                      {...register("idAlimento")}
+                      value={idAlimento} // Valor controlado pelo estado
+                      onChange={(e) => setIdAlimento(e.target.value)} // Atualiza o estado
                     />
                     <button
                       type="button"
-                      onClick={() =>
-                        adicionarAlimentoAoPrato(parseInt(data.idAlimento))
-                      }
+                      onClick={() => adicionarAlimentoAoPrato(parseInt(idAlimento))}
                     >
                       Adicionar Alimento
                     </button>
