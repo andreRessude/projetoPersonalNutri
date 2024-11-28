@@ -95,7 +95,7 @@ function TelaDeveloper() {
           await adicionarAlimento(newAlimento);
           message = "Alimento adicionado com sucesso!";
         } else {
-          await adicionarPrato(newPrato);
+          await adicionarPrato(newPrato, alimentosSelecionados);
           message = "Prato adicionado com sucesso!";
         }
       } else if (operation === "editar") {

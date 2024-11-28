@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react"; 
 import styles from "./telaPrato.module.css";
 import Layout from "../../Components/Layout/Layout";
+import { buscarAlimentoById } from "../../Services/api/api";
 
 function TelaPrato(props) {
     const location = useLocation(); // define o props como 'prato'
@@ -29,7 +30,12 @@ function TelaPrato(props) {
                 {(prato.mode) ? (null) : (
                     <div className={styles.containerTelaPrato}>
                         <h2 className={styles.titleTabela}>Ingredientes</h2>
-                        {/* lista de ingredientes */}
+                        {console.log(prato)}
+                        {/* <ul>
+                            <li>
+                                {buscarAlimentoById(prato.idAlimento)}
+                            </li>
+                        </ul> */}
                     </div>
                 )}
 

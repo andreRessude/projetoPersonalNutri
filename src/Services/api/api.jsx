@@ -66,12 +66,13 @@ export async function adicionarAlimento(alimento) {
         throw error;
     }
 }
-export async function adicionarPrato(prato) {
+export async function adicionarPrato(prato, idAlimentos) {
     try {
+        console.log(prato);
         const response = await fetch('http://localhost:8080/api/personalnutri/pratos', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(prato),
+            body: JSON.stringify(prato, idAlimentos),
         });
         
         if (!response.ok) {
