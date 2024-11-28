@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./TelaDeveloper.module.css";
-import { buscarAlimento, buscarAlimentoById } from "../../Services/api/api";
+import { buscarAlimento, buscarAlimentoById, adicionarAlimento, editarAlimento, deletarAlimento,
+          buscarPrato, buscarPratoById, adicionarPrato, editarPrato, deletarPrato } from "../../Services/api/api";
+import { useNavigate } from "react-router-dom";
 
 function TelaDeveloper() {
+  const navigate = useNavigate();
   const [operation, setOperation] = useState("");
   const [mode, setMode] = useState(true); // true = alimento, false = prato
   const [alimentosSelecionados, setAlimentosSelecionados] = useState([]); // Lista de IDs de alimentos para o prato
@@ -60,18 +63,51 @@ function TelaDeveloper() {
   };
 
   const onSubmit = async (data) => {
+    console.log(data);
     try {
-      if (operation === "adicionar" && !mode) {
-        // Se for adicionar um prato, incluir os alimentos selecionados
-        data.alimentos = alimentosSelecionados;
+      let message = "";
+      const itemId = data.deleteId;
+      const newItem = {
+        nome: data.nome,
+        lipidios: data.lipidios,
+        calorias: data.calorias,
+        fibras: data.fibras,
+        cargaGlicemica: data.cargaGlicemica,
+        recomendacaoSaudavel: data.recomendacaoSaudavel,
+        imagemUrl: data.imagemUrl,
+      };
+      if (operation === "adicionar") {
+        if (mode) {
+          await adicionarAlimento(newItem);
+          message = "Alimento adicionado com sucesso!";
+        } else {
+          await adicionarPrato(newItem);
+          message = "Prato adicionado com sucesso!";
+        }
+      } else if (operation === "editar") {
+        if (mode) {
+          await editarAlimento(itemId, newItem);
+          message = "Alimento atualizado com sucesso!";
+        } else {
+          await editarPrato(itemId, newItem);
+          message = "Prato atualizado com sucesso!";
+        }
+      } else if (operation === "deletar") {
+        if (mode) {
+          await deletarAlimento(itemId);
+          message = "Alimento deletado com sucesso!";
+        } else {
+          await deletarPrato(itemId);
+          message = "Prato deletado com sucesso!";
+        }
       }
-      console.log("Dados enviados:", data);
-      // Aqui você enviaria os dados para a API correspondente
-      setSuccessMessage(`Operação "${operation}" realizada com sucesso!`);
+
+      handleGetItens();
+      setSuccessMessage(message);
       setShowSuccessModal(true);
       reset();
     } catch (error) {
-      console.error("Erro ao enviar dados:", error);
+      console.error("Erro ao realizar a operação:", error);
     }
   };
 
@@ -79,6 +115,7 @@ function TelaDeveloper() {
     <div className={styles.developerContainer}>
       <h2>Modo Desenvolvedor</h2>
 
+      {/* Botões alimento/prato */}
       <div className={styles.buttonsMode}>
         <button
           className={`${mode === true ? styles.active : ""}`}
@@ -94,6 +131,7 @@ function TelaDeveloper() {
         </button>
       </div>
 
+      {/* Botões CRUD */}
       <div className={styles.buttonsContainer}>
         <button
           className={`${operation === "mostrar" ? styles.active : ""}`}
@@ -122,14 +160,26 @@ function TelaDeveloper() {
       </div>
 
       {/* GET */}
-      {operation === "mostrar" && (
+      {(operation === "mostrar" && mode === true) && (
         <div className={styles.itensList}>
           <button onClick={handleGetItens}>Atualizar Lista</button>
           <ul>
             {itens.map((item) => (
-              <li key={mode ? item.id_alimento : item.id_prato}>
-                {mode ? item.id_alimento : item.id_prato}. {item.nome}
-              </li>
+                <li key={item.id_alimento}>
+                    {item.id_alimento}. {item.nome}
+                </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {(operation === "mostrar" && mode === false) && (
+        <div className={styles.itensList}>
+          <button onClick={handleGetItens}>Atualizar Lista</button>
+          <ul>
+            {itens.map((item) => (
+                <li key={item.id_prato}>
+                    {item.id_prato}. {item.nome}
+                </li>
             ))}
           </ul>
         </div>
@@ -138,6 +188,17 @@ function TelaDeveloper() {
       {/* FORMULARIO COM REACT HOOK FORM */}
       {operation !== "mostrar" && (
         <form onSubmit={handleSubmit(onSubmit)} className={styles.alimentoForm}>
+          {(operation === "editar" || operation === "deletar") && (
+            <div>
+            <input
+              type="text"
+              placeholder={`ID do ${mode ? "Alimento" : "Prato"}`}
+              {...register("deleteId" , { required: `ID do ${mode ? "Alimento" : "Prato"} é necessário` })}
+            />
+            {errors.alimentoId && <p style={{ color: "red" }}>{errors.alimentoId.message}</p>}
+            {errors.pratoId && <p style={{ color: "red" }}>{errors.pratoId.message}</p>}
+            </div>
+          )}
           {(operation === "adicionar" || operation === "editar") && (
             <>
               <input
@@ -184,7 +245,7 @@ function TelaDeveloper() {
               <input 
                 type="url"
                 placeholder="URL da imagem"
-                {...register("imagemURL", {
+                {...register("imagemUrl", {
                     pattern: {
                         value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/i,
                         message: "URL da imagem inválido",
@@ -204,9 +265,7 @@ function TelaDeveloper() {
                     <button
                       type="button"
                       onClick={() =>
-                        adicionarAlimentoAoPrato(
-                          parseInt(document.querySelector("[name='idAlimento']").value)
-                        )
+                        adicionarAlimentoAoPrato(parseInt(data.idAlimento))
                       }
                     >
                       Adicionar Alimento
@@ -243,7 +302,7 @@ function TelaDeveloper() {
         </div>
       )}
 
-      <button className={styles.botaoVoltar} onClick={() => console.log("Voltar para a página anterior")}>
+      <button className={styles.botaoVoltar} onClick={() => navigate("/")}>
         Voltar
       </button>
     </div>
