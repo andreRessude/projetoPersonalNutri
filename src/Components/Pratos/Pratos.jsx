@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"; 
 import { useNavigate } from "react-router-dom";
-import { buscarAlimento } from "../../Services/api/api";  //ALTERAR PARA 'buscarAlimentos' QUANDO ESTIVER TD PRONTO
+import { buscarAlimento, buscarPrato } from "../../Services/api/api";  //ALTERAR PARA 'buscarAlimentos' QUANDO ESTIVER TD PRONTO
 import styles from "./Pratos.module.css"
 
 function Pratos({ searchQuery }) {  //recebe parametro searchQuery
@@ -9,20 +9,32 @@ function Pratos({ searchQuery }) {  //recebe parametro searchQuery
     const navigate = useNavigate();
 
     //effect pra chamar dunção que busca os dados da api
-    useEffect(() => {
-        async function carregarPratos() {
-            try {
-                console.log("Consultando API...")
-                const data = await buscarAlimento();  //chama a funcao e retorna com os dados dos pratos
-                console.log("API consultada!");
-                setlistaPratos(data);   //set da lista completa de pratos
-                setPratosFiltrados(data);   //inicialmente os pratos filtrados são os mesmo das lista completa, mas depois vão sendo alterados conforme o input de pesquisa muda seu valor
-            } catch (error) {
-                alert("Não foi possível conectar à API.");
-            }
-        }
-        carregarPratos();
-    }, []);
+   useEffect(() => {
+    async function carregarItens() {
+      try {
+        console.log("Consultando API...");
+
+        // Faz a requisição para buscar os pratos e alimentos
+        const pratos = await buscarPrato();
+        const alimentos = await buscarAlimento();
+
+        // Garante que ambos sejam arrays antes de concatenar
+        const data = [...(pratos || []), ...(alimentos || [])];
+
+        console.log("API consultada!");
+
+        // Atualiza o estado com os dados combinados
+        setlistaPratos(data);
+        setPratosFiltrados(data); // Inicialmente, pratos filtrados é igual à lista completa
+
+      } catch (error) {
+        console.error("Erro ao carregar itens:", error);
+        alert("Não foi possível conectar à API.");
+      }
+    }
+
+    carregarItens();
+  }, []);
 
     // effect para filtrar a lista de pratos quando a pesquisa ou a lista de pratos muda
     useEffect(() => {
@@ -39,8 +51,8 @@ function Pratos({ searchQuery }) {  //recebe parametro searchQuery
 
     
     const changePage = (path, prato) => {
-        console.log(prato)
-        navigate(path, {state: { prato } });
+        console.log(prato.mode)
+        navigate(path, { state: { prato } });
     }
 
     return (
@@ -56,7 +68,7 @@ function Pratos({ searchQuery }) {  //recebe parametro searchQuery
                     // se não estiver vazia, mostre a lista de pratos filtrados
                     pratosFiltrados.map((prato) => (
                         <div key={prato.id} className={styles.cardContainer} onClick={() => changePage("/telaprato", prato)}>
-                            <img src={prato.imagem} alt={prato.nome} className={styles.cardImage}/>     {/* COLOCAR IMAGEM COMO ATRIBUTO NO BDD */}
+                            <img src={prato.imagemUrl} alt={prato.nome} className={styles.cardImage}/>     {/* COLOCAR IMAGEM COMO ATRIBUTO NO BDD */}
                             <div className={styles.cardContent}>
                                 <h3 className={styles.cardTitle}>{prato.nome}</h3>
                             </div>
