@@ -157,6 +157,26 @@ h2 {
     transform: scale(1.05);
 }
 
+.textarea {
+    width: 90%; /* Adapta ao container */
+    max-width: 600px; /* Define uma largura máxima */
+    min-width: 200px; /* Define uma largura mínima */
+    height: auto; /* Permite crescimento */
+    max-height: 400px; /* Define uma altura máxima */
+    min-height: 100px; /* Define uma altura mínima */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 8px; /* Arredondamento */
+    font-size: 16px; /* Tamanho da fonte */
+    resize: both; /* Permite redimensionar tanto na vertical quanto na horizontal */
+    outline: none; /* Remove o contorno ao focar */
+    transition: border-color 0.3s; /* Efeito de transição ao focar */
+}
+
+.textarea:focus {
+    border-color: #007bff; /* Cor da borda ao focar */
+}
+
 /* botao de voltar */
 .botaoVoltar {
     margin: 12px;

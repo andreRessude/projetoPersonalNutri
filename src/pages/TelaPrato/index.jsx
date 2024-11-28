@@ -30,6 +30,23 @@ function TelaPrato(props) {
                     <div className={styles.containerTelaPrato}>
                         <h2 className={styles.titleTabela}>Ingredientes</h2>
                         {/* lista de ingredientes */}
+
+                        {prato.nome === "Estrogonofe de Frango" && (
+                            <div className={styles.containerTelaPrato}>
+                                <div className={styles.tabela}>
+                                    <div className={styles.rowTabela}>
+                                        <p className={styles.textTabela}>Frango</p>
+                                    </div>
+                                    <div className={styles.rowTabela}>
+                                        <p className={styles.textTabela}>Arroz</p>
+                                    </div>
+                                    <div className={styles.rowTabela}>
+                                        <p className={styles.textTabela}>Creme de leite</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        
                     </div>
                 )}
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./telaCamera.module.css";
 import Layout from "../../Components/Layout/Layout";
 import ImageClassifier from "../../Components/ImageClassifier/ImageClassifier";
-import { buscarAlimento } from "../../Services/api/api";    //CAMINHO PARA A FUNCAO 'BUSCARALIMENTO' NA API.JSX 
+import { buscarPrato } from "../../Services/api/api";    //CAMINHO PARA A FUNCAO 'BUSCARALIMENTO' NA API.JSX 
 
 function TelaCamera() {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ function TelaCamera() {
 
     // funcao chamada quando o prato é identificado
     const handleDishIdentified = async (dishName) => {
-        const pratos = await buscarAlimento(); // busca pratos da api
+        const pratos = await buscarPrato(); // busca pratos da api
         const normalizeString = (str) => str.toLowerCase().trim(); // Normaliza strings para comparação
 
         const pratoEncontrado = pratos.find(

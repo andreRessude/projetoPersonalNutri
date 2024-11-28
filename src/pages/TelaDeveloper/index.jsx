@@ -247,13 +247,24 @@ function TelaDeveloper() {
                 placeholder="URL da imagem"
                 {...register("imagemUrl", {
                     pattern: {
-                        value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/i,
+                        // value: /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|svg))$/i,
                         message: "URL da imagem inválido",
                     },
                 })} 
               />
-
               {!mode && (
+                <textarea
+                className={styles.textarea}
+                placeholder="Digite os ingredientes..."
+                rows={5} // Define a altura inicial (linhas visíveis)
+                cols={50} // Define a largura inicial (colunas visíveis)
+                onChange={(e) => console.log(e.target.value)} // Lida com mudanças no conteúdo
+              ></textarea>
+              )
+              }
+              
+
+              {/* {!mode && (
                 <>
                   <h3>Adicionar Alimentos ao Prato</h3>
                   <div>
@@ -283,7 +294,7 @@ function TelaDeveloper() {
                     ))}
                   </ul>
                 </>
-              )}
+              )} */}
             </>
           )}
 
